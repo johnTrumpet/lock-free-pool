@@ -37,8 +37,6 @@ public:
     }
     ~Dummy() = default;
 
-    void UpdateIntegerBounds( pIntVec&& bndVec );
-
     inline pInt NodeID() const { return( _nodId.load() ); }
     inline pInt ThreadID() const { return( _thrId.load() ); }
 };
