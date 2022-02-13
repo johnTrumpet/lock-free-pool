@@ -1,3 +1,14 @@
+/************************************************************************/
+/*                    GNU AFFERO GENERAL PUBLIC LICENSE
+/*                       Version 3, 19 November 2007
+/*
+/* Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+/* Everyone is permitted to copy and distribute verbatim copies
+/* of this license document, but changing it is not allowed.
+/*
+/*************************************************************************/
+#pragma once
+
 #include <atomic>
 
 #include "types.h"
@@ -52,9 +63,6 @@ template<typename T> pBool LockFreeStack<T>::IsEmpty() const
 template<typename T> void LockFreeStack<T>::Push( T* data )
 {
     Item* dItem = new Item( data );
-    
-    Item* dItemTagged = nullptr;
-    Item* cHead = nullptr;
     Item* currHead = _head.load();
     do
     {
@@ -66,9 +74,7 @@ template<typename T> void LockFreeStack<T>::Push( T* data )
 template<typename T> T* LockFreeStack<T>::Pop() 
 {
     Item* rItem = _head.load();
-    Item* cItem = nullptr;
     Item* nextItem = nullptr;
-    pBool rStatus = true;
     T* data = nullptr;
     do 
     {

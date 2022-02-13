@@ -259,7 +259,6 @@ private:
     virtual void deallocate( const T* const ptr ) override
     {
         PoolChunkT* cChunk = _headChunk.load()->GetNextChunk();
-        PoolChunkT* nChunk = nullptr;
         PoolItemT* cFreeItem = nullptr;
         PoolItemT* itemToPut = (PoolItemT*) ptr;
 
