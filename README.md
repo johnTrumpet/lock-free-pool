@@ -1,2 +1,2 @@
 # lock-free-pool
-A  lock-free thread safe and scalable object pool
+A  lock-free thread safe and resizable object pool
